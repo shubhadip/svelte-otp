@@ -1,0 +1,149 @@
+<script lang="ts">
+	import { createEventDispatcher,afterUpdate, tick } from 'svelte';
+	import TextInput from '../TextInput/Index.svelte';
+
+	interface IInputValue{
+		completevalue: string
+		isInputComplete: boolean
+	};
+	
+	
+	export let numberOfInputs: number = 4;
+	export let separator: string = '';
+	export let initialValue: string = '';
+	export let placeholder: string = '';
+	export let customTextInputClass:string ='';
+	export let customSeparatorClass:string='';
+	export let customRowClass:string='';
+	export let customWrapperClass:string='';
+	export let customInputWrapperClass: string = '';
+	export let maskInput: boolean = false;
+	export let autoFousNextOnInput: boolean = true;
+  export let focusPreviousOnDelete: boolean = true;
+	export let emitEventOnPrefill: boolean = false;
+	
+	function getComponents(): {
+		componentIndex: string,
+		ref: any | null, 
+		initialValue: string,
+		placeholder: string
+	}[] {
+		return Array.from(Array(numberOfInputs).keys()).map((i : number) => {
+			const initVal = initialValue[i] || '';
+			const initPlaceholder = placeholder[i] || '';
+			return {
+				componentIndex: `otp${i}`,
+				ref: null, 
+				initialValue: initVal,
+				placeholder: initPlaceholder
+			}
+		})
+	};
+
+	function checkValidity(doNotify: boolean, extrakeys?: {[x: string]: any}): IInputValue | void {
+		let completevalue = '';
+		let isInputComplete = true;
+		
+		components.forEach((i) => {
+			let value = `${i.ref.$$.ctx[0]}`
+			if(!value){
+				isInputComplete = false;
+			};
+			completevalue += (value || ' ')
+		});
+		
+		let returnObj = {
+			completevalue,
+			isInputComplete: (isInputComplete && completevalue.length === numberOfInputs)
+		}
+
+		if(extrakeys) {
+			returnObj = {
+				...returnObj,
+				...(extrakeys || {})
+			}
+		}
+		if(doNotify) {
+			dispatch('notify', returnObj)
+		}else {
+			return returnObj
+		}
+	};
+
+	let components = getComponents();
+	
+	/**
+	 * this runs twice while value change &
+	 * during render
+	*/
+	// afterUpdate(async () => {
+	// 	components = getComponents();
+	// 	await tick();
+	// 	if(emitEventOnPrefill) {
+	// 		checkValidity(true, {onValueUpdateOrPrefill: true});
+	// 	}
+	// });
+
+	$: {
+		async function prefillValueOnInitialValueChange(){
+			if(initialValue !== undefined && initialValue.trim().length > 0){
+				components = getComponents();
+				await tick();
+				if(emitEventOnPrefill) {
+					checkValidity(true, {onValueUpdateOrPrefill: true});
+				}
+			}
+		}
+		prefillValueOnInitialValueChange();
+	}
+	
+	const dispatch = createEventDispatcher();
+	
+	export const getValue = (): IInputValue => {
+		return checkValidity(false) as IInputValue
+	};
+
+	const handleChange = (currentElement: string, event: InputEvent): void => {
+		const isDeleteEvent = event.inputType === 'deleteContentBackward' 
+		const currentIndex = components.findIndex((i) => i.componentIndex === currentElement)		
+		let nextIndex;
+
+		if(isDeleteEvent && focusPreviousOnDelete){
+			nextIndex = currentIndex === 0 ? 0 : (currentIndex - 1)
+			const nextRef = components[nextIndex].ref;
+			nextRef.$$.ctx[5].focus();
+		}
+
+		if(!isDeleteEvent && autoFousNextOnInput) {
+			nextIndex = currentIndex < components.length - 1 ?  currentIndex + 1 : currentIndex
+			const nextRef = components[nextIndex].ref;
+			nextRef.$$.ctx[5].focus();
+		}
+		
+		checkValidity(true)
+	}
+
+</script>
+<section class={`${customWrapperClass} otp-wrapper`}>
+	{#each components as comp, index}
+		<div class={`${customRowClass} otp-row`}>
+			<TextInput 
+				value={comp.initialValue}
+				componentIndex={comp.componentIndex}
+				handleChange={handleChange}
+				placeholder={comp.placeholder}
+				bind:this={comp.ref}
+				customInputClass={customTextInputClass}
+				customInputWrapperClass={customInputWrapperClass}
+				maskInput={maskInput}
+			/>
+			{#if index !== components.length - 1}
+				<p class={`${customSeparatorClass} separator`}>{separator}</p>
+			{/if}
+		</div>
+	{/each}
+</section>
+
+<style lang="postcss">
+  @import './otp.postcss';
+</style>
