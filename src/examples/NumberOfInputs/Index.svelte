@@ -14,10 +14,7 @@
 			<div>
 				<OtpInput numberOfInputs={6} />
 			</div>
-			<label>Number Of Inputs</label>
+			<label for="number-of-inputs">Number Of Inputs</label>
 		</div>
 	</div>
 </main>
-<style lang="postcss">
-	@import "./index.postcss";
-</style>
