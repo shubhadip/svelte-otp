@@ -28,7 +28,7 @@
 				focusPreviousOnDelete={true}
 			/>
 		</div>
-		<label for="name">Focus Change on Input/Delete </label>
+		<label class="textEmitted" for="name">Focus Change on Input/Delete </label>
 	</div>
 </main>
 <style>

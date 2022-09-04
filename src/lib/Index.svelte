@@ -7,7 +7,7 @@
     }
   
     export let numberOfInputs = 4;
-    export let separator = '';
+    export let separator = '-';
     export let initialValue = '';
     export let placeholder = '';
     export let customTextInputClass = '';

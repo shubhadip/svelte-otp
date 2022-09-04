@@ -14,7 +14,7 @@
 			<div>
 				<OtpInput numberOfInputs={6} />
 			</div>
-			<label for="number-of-inputs">Number Of Inputs</label>
+			<label class="textEmitted" for="number-of-inputs">Number Of Inputs</label>
 		</div>
 	</div>
 </main>

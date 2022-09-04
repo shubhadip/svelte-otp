@@ -15,7 +15,7 @@
 		<div>
 			<OtpInput numberOfInputs={4} placeholder="****" />
 		</div>
-		<label for="name">Placeholder : *</label>
+		<label class="textEmitted" for="name">Placeholder : *</label>
 	</div>
 
 	<div class="container">
@@ -25,7 +25,7 @@
 		<div>
 			<OtpInput separator={"-"} placeholder="******" numberOfInputs={6}  />
 		</div>
-		<label for="name">Separator : - </label>
+		<label class="textEmitted" for="name">Separator : - </label>
 	</div>
 
 </main>

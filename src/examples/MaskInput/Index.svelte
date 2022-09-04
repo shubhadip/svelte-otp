@@ -18,7 +18,7 @@
 				placeholder={"****"}
 			/>
 		</div>
-		<label for="name">Masking Input </label>
+		<label class="textEmitted" for="name">Masking Input </label>
 	</div>
 </main>
 <style>
