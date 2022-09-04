@@ -10,7 +10,11 @@ const config = {
 
 	kit: {
 		adapter: adapter()
-	}
+	},
+	
+	package: {
+		emitTypes: true,
+	},
 };
 
 export default config;

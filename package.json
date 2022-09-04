@@ -1,6 +1,6 @@
 {
   "name": "svelte-otp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "svelte Otp",
   "type": "module",
   "scripts": {
@@ -13,7 +13,9 @@
     "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
     "prelint": "npm run format",
     "cz": "git-cz",
-    "pkg:build": "svelte-package"
+    "pkg:build": "svelte-package",
+    "postcss-convert": "postcss package/**/*.css --replace ",
+    "lib:build": "npm run pkg:build && npm run postcss-convert"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -23,11 +25,15 @@
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@sveltejs/package": "next",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tsconfig/svelte": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.13",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
     "eslint-plugin-svelte3": "^4.0.0",
@@ -35,6 +41,7 @@
     "husky": "^6.0.0",
     "lint-staged": ">=10",
     "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
@@ -44,9 +51,6 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/kit": "next",
-    "@sveltejs/package": "next",
     "vite": "^3.1.0-beta.1"
   },
   "lint-staged": {
