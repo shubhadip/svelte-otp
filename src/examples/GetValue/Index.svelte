@@ -58,7 +58,7 @@
 			emitEventOnPrefill={true}
 			bind:this={otpInstance}
 		/>
-		<p style="font-weight: bold">EmittedValue: {emittedValue}</p>
+		<p class="textEmitted">EmittedValue: {emittedValue}</p>
 		<div class="button-otp" on:click={handleClick}> Get Value </div>
 	</div>
 </main>
