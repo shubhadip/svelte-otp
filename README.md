@@ -133,3 +133,6 @@ eventObj = {
 | Event             | Output     | Description                          |
 |-------------------|------------|--------------------------------------|
 | notify            |  eventObj  | Even is emitted when input is complete                 |
+
+## Authors
+[@shubhadip](https://www.github.com/shubhadip)
