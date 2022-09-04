@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:demo": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write ./src/**/*.{svelte,ts}",
@@ -15,7 +15,10 @@
     "cz": "git-cz",
     "pkg:build": "svelte-package",
     "postcss-convert": "postcss package/**/*.css --replace ",
-    "lib:build": "npm run pkg:build && npm run postcss-convert"
+    "build:lib": "npm run pkg:build && npm run postcss-convert",
+    "commit-message": "npm run commitlint -e -V",
+    "semantic-release:local": "npm run build:lib && yarn build:demo && semantic-release --no-ci",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
