@@ -34,5 +34,5 @@
 </div>
 
 <style lang="postcss">
-  @import './textinput.postcss';
+  @import './textinput.css';
 </style>
