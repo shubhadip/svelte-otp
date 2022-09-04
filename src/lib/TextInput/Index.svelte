@@ -1,46 +1,38 @@
 <script lang="ts">
-	export let maskInput: boolean = false;
-	export let inputType: string = maskInput ? 'password': 'tel';
-	export let value: string = ''
-	export let componentIndex: string;
-	export let placeholder: string = ''
-	export let customInputWrapperClass: string = '';
-	export let customInputClass: string = '';
-	export let handleBlur: (componentIndex: string) => void = () => {} ;
-	export let handleChange: (componentIndex: string, value: any) => void ;
-	
-	let component;
-	
-	function onChange(e : Event & { currentTarget: EventTarget & HTMLInputElement }) : void {
-		value = ((e.target as HTMLInputElement).value);
-		if(handleChange) {
-			handleChange(componentIndex, e)
-		}
-	};
+  export let maskInput = false;
+  export let inputType: string = maskInput ? 'password' : 'tel';
+  export let value = '';
+  export let componentIndex: string;
+  export let placeholder = '';
+  export let customInputWrapperClass = '';
+  export let customInputClass = '';
+  export let handleChange: (componentIndex: string, value: any) => void;
 
-	function onBlur() : void {
-		if(handleBlur) {
-			handleBlur(componentIndex)
+  let component;
+
+  function onChange(e: Event & { currentTarget: EventTarget & HTMLInputElement }): void {
+		value = (e.target as HTMLInputElement).value;
+		if (handleChange) {
+			handleChange(componentIndex, e);
 		}
-	};
+  }
 
 </script>
 
-<svelte:window/>
+<svelte:window />
 
 <div class={`${customInputWrapperClass} textcontainer`}>
-	<input 
+  <input
 		type={inputType}
-		placeholder={placeholder} 
-		value={value}
-		on:input="{onChange}"
-		on:blur="{onBlur}"
+		{placeholder}
+		{value}
+		on:input={onChange}
 		maxlength={1}
 		class={`${customInputClass} inputclass`}
-		bind:this={component} 
-	/>
+		bind:this={component}
+		/>
 </div>
 
 <style lang="postcss">
-	@import './textinput.postcss';
+  @import './textinput.postcss';
 </style>

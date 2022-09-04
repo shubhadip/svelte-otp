@@ -1,147 +1,142 @@
 <script lang="ts">
-	import { createEventDispatcher,afterUpdate, tick } from 'svelte';
-	import TextInput from '../TextInput/Index.svelte';
+  import { createEventDispatcher, tick } from 'svelte';
+  import TextInput from '../TextInput/Index.svelte';
+  interface IInputValue {
+    completevalue: string;
+    isInputComplete: boolean;
+  }
 
-	interface IInputValue{
-		completevalue: string
-		isInputComplete: boolean
-	};
-	
-	
-	export let numberOfInputs: number = 4;
-	export let separator: string = '';
-	export let initialValue: string = '';
-	export let placeholder: string = '';
-	export let customTextInputClass:string ='';
-	export let customSeparatorClass:string='';
-	export let customRowClass:string='';
-	export let customWrapperClass:string='';
-	export let customInputWrapperClass: string = '';
-	export let maskInput: boolean = false;
-	export let autoFousNextOnInput: boolean = true;
-  export let focusPreviousOnDelete: boolean = true;
-	export let emitEventOnPrefill: boolean = false;
-	
-	function getComponents(): {
-		componentIndex: string,
-		ref: any | null, 
-		initialValue: string,
-		placeholder: string
-	}[] {
-		return Array.from(Array(numberOfInputs).keys()).map((i : number) => {
-			const initVal = initialValue[i] || '';
-			const initPlaceholder = placeholder[i] || '';
-			return {
-				componentIndex: `otp${i}`,
-				ref: null, 
-				initialValue: initVal,
-				placeholder: initPlaceholder
-			}
-		})
-	};
+  export let numberOfInputs = 4;
+  export let separator = '';
+  export let initialValue = '';
+  export let placeholder = '';
+  export let customTextInputClass = '';
+  export let customSeparatorClass = '';
+  export let customRowClass = '';
+  export let customWrapperClass = '';
+  export let customInputWrapperClass = '';
+  export let maskInput = false;
+  export let autoFocusNextOnInput = true;
+  export let focusPreviousOnDelete = true;
+  export let emitEventOnPrefill = false;
 
-	function checkValidity(doNotify: boolean, extrakeys?: {[x: string]: any}): IInputValue | void {
-		let completevalue = '';
-		let isInputComplete = true;
-		
-		components.forEach((i) => {
-			let value = `${i.ref.$$.ctx[0]}`
-			if(!value){
-				isInputComplete = false;
-			};
-			completevalue += (value || ' ')
-		});
-		
-		let returnObj = {
-			completevalue,
-			isInputComplete: (isInputComplete && completevalue.length === numberOfInputs)
-		}
+  function getComponents(): {
+    componentIndex: string;
+    ref: any | null;
+    initialValue: string;
+    placeholder: string;
+  }[] {
+    return Array.from(Array(numberOfInputs).keys()).map((i: number) => {
+      const initVal = initialValue[i] || '';
+      const initPlaceholder = placeholder[i] || '';
+      return {
+        componentIndex: `otp${i}`,
+        ref: null,
+        initialValue: initVal,
+        placeholder: initPlaceholder,
+      };
+    });
+  }
 
-		if(extrakeys) {
-			returnObj = {
-				...returnObj,
-				...(extrakeys || {})
-			}
-		}
-		if(doNotify) {
-			dispatch('notify', returnObj)
-		}else {
-			return returnObj
-		}
-	};
+  function checkValidity(doNotify: boolean, extrakeys?: { [x: string]: any }): IInputValue | void {
+    let completevalue = '';
+    let isInputComplete = true;
 
-	let components = getComponents();
-	
-	/**
-	 * this runs twice while value change &
-	 * during render
-	*/
-	// afterUpdate(async () => {
-	// 	components = getComponents();
-	// 	await tick();
-	// 	if(emitEventOnPrefill) {
-	// 		checkValidity(true, {onValueUpdateOrPrefill: true});
-	// 	}
-	// });
+    components.forEach((i: {
+      [x: string]: any
+    }) => {
+      /* eslint-disable */
+      let value: string = `${i?.ref?.$$?.ctx[0]}` as string;
+      /* eslint-enable */
+      if (!value) {
+        isInputComplete = false;
+      }
+      completevalue += value || ' ';
+    });
 
-	$: {
-		async function prefillValueOnInitialValueChange(){
-			if(initialValue !== undefined && initialValue.trim().length > 0){
-				components = getComponents();
-				await tick();
-				if(emitEventOnPrefill) {
-					checkValidity(true, {onValueUpdateOrPrefill: true});
-				}
-			}
-		}
-		prefillValueOnInitialValueChange();
-	}
-	
-	const dispatch = createEventDispatcher();
-	
-	export const getValue = (): IInputValue => {
-		return checkValidity(false) as IInputValue
-	};
+    let returnObj = {
+      completevalue,
+      isInputComplete: isInputComplete && completevalue.length === numberOfInputs,
+    };
+    if (extrakeys) {
+      returnObj = {
+        ...returnObj,
+        ...(extrakeys || {}),
+      };
+    }
+    if (doNotify) {
+      dispatch('notify', returnObj);
+    } else {
+      return returnObj;
+    }
+  }
 
-	const handleChange = (currentElement: string, event: InputEvent): void => {
-		const isDeleteEvent = event.inputType === 'deleteContentBackward' 
-		const currentIndex = components.findIndex((i) => i.componentIndex === currentElement)		
-		let nextIndex;
+  let components = getComponents();
+  
+  $: {
+    /* eslint-disable */
+    async function prefillValueOnInitialValueChange() : Promise<void> {
+      if (initialValue !== undefined && initialValue.trim().length > 0) {
+        components = getComponents();
+        await tick();
+        if (emitEventOnPrefill) {
+          checkValidity(true, { onValueUpdateOrPrefill: true });
+        }
+      }
+    };
+    prefillValueOnInitialValueChange();
+    /* eslint-enable */
+  }
 
-		if(isDeleteEvent && focusPreviousOnDelete){
-			nextIndex = currentIndex === 0 ? 0 : (currentIndex - 1)
-			const nextRef = components[nextIndex].ref;
-			nextRef.$$.ctx[5].focus();
-		}
+  const dispatch = createEventDispatcher();
 
-		if(!isDeleteEvent && autoFousNextOnInput) {
-			nextIndex = currentIndex < components.length - 1 ?  currentIndex + 1 : currentIndex
-			const nextRef = components[nextIndex].ref;
-			nextRef.$$.ctx[5].focus();
-		}
-		
-		checkValidity(true)
-	}
+  export const getValue = (): IInputValue => {
+    return checkValidity(false) as IInputValue;
+  };
 
+  const handleChange = (currentElement: string, event: InputEvent): void => {
+    const isDeleteEvent = event.inputType === 'deleteContentBackward';
+    const currentIndex = components.findIndex((i) => i.componentIndex === currentElement);
+    let nextIndex;
+
+    if (isDeleteEvent && focusPreviousOnDelete) {
+      nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
+      /* eslint-disable */
+      const nextRef: {[x:string]: any} = components[nextIndex]?.ref;
+      nextRef?.$$?.ctx[5]?.focus();
+      /* eslint-enable */
+    }
+
+    if (!isDeleteEvent && autoFocusNextOnInput) {
+      nextIndex = currentIndex < components.length - 1 ? currentIndex + 1 : currentIndex;
+      /* eslint-disable */
+      const nextRef: {[x:string]: any} = components[nextIndex].ref;
+      nextRef?.$$?.ctx[5]?.focus();
+      /* eslint-enable */
+    }
+
+    checkValidity(true);
+  };
 </script>
+
 <section class={`${customWrapperClass} otp-wrapper`}>
-	{#each components as comp, index}
-		<div class={`${customRowClass} otp-row`}>
-			<TextInput 
-				value={comp.initialValue}
-				componentIndex={comp.componentIndex}
-				handleChange={handleChange}
-				placeholder={comp.placeholder}
-				bind:this={comp.ref}
-				customInputClass={customTextInputClass}
-				customInputWrapperClass={customInputWrapperClass}
-				maskInput={maskInput}
-			/>
-			{#if index !== components.length - 1}
-				<p class={`${customSeparatorClass} separator`}>{separator}</p>
-			{/if}
-		</div>
-	{/each}
+  {#each components as comp, index}
+    <div class={`${customRowClass} otp-row`}>
+      <TextInput
+        value={comp.initialValue}
+        componentIndex={comp.componentIndex}
+        {handleChange}
+        placeholder={comp.placeholder}
+        bind:this={comp.ref}
+        customInputClass={customTextInputClass}
+        {customInputWrapperClass}
+        {maskInput}
+      />
+      {#if index !== components.length - 1}
+        <p class={`${customSeparatorClass} separator`}>{separator}</p>
+      {/if}
+    </div>
+  {/each}
 </section>
 
 <style lang="postcss">

@@ -2,24 +2,80 @@
   "name": "svelte-otp",
   "private": true,
   "version": "0.0.0",
+  "description": "svelte Otp",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "format": "prettier --write ./src/**/*.{svelte,ts}",
+    "lint": "eslint './src/**/*.{js,ts,svelte}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
+    "prelint": "npm run format",
+    "cz": "git-cz"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tsconfig/svelte": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.8",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.23.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "git-cz": "^4.7.3",
+    "husky": "^6.0.0",
+    "lint-staged": ">=10",
     "postcss": "^8.4.16",
     "postcss-nested": "^5.0.6",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0",
+    "semantic-release": "17.2.1",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte}": [
+      "svelte-check",
+      "npm run lint:fix"
+    ]
+  },
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelte3",
+    "javascript",
+    "typescript",
+    "vite",
+    "vitejs",
+    "otp",
+    "otp-input"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhadip/svelte-otp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shubhadip/svelte-otp/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "dependencies": {
+    "svelte-prism": "^1.1.6"
   }
 }

@@ -1,24 +1,24 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import OtpInput from './lib/OtpInput/OtpInput.svelte';
   let value = '';
-  let otpInstance;
-  
-  function handleClick() {
-    console.log('value on click', otpInstance.getValue());
-  };
+  let otpInstance: {getValue: () => void};
 
-  function callbackFunction(event) {
+  function handleClick() {
+    console.log('value on click', otpInstance?.getValue());
+  }
+
+  function callbackFunction(event: CustomEvent) {
     console.log('emittedValue', event.detail);
-  };
+  }
 
   function handlePrefill() {
     value = '123456';
-  };
-
+  }
 </script>
+
 <main>
   <div>
-    <OtpInput 
+    <OtpInput
       numberOfInputs={6}
       separator={'*'}
       placeholder={'000000'}
@@ -31,19 +31,26 @@
       bind:this={otpInstance}
       on:notify={callbackFunction}
       maskInput={true}
-      autoFousNextOnInput={true}
+      autoFocusNextOnInput={true}
       focusPreviousOnDelete={true}
-      emitEventOnPrefill
-    /> 
-    <button class="button-otp" on:click={handleClick}>
-      Get Otp
-    </button>
-
-    <button class="button-otp" on:click={handlePrefill}>
-      Prefill
-    </button>
+      emitEventOnPrefill={true}
+    />
+    <button class="button-otp" on:click={handleClick}> Get Otp </button>
+    <button class="button-otp" on:click={handlePrefill}> Prefill </button>
   </div>
 </main>
+
 <style>
-  
+</style> -->
+
+<script lang="ts">
+  import Example from './examples/Index.svelte';
+</script>
+
+<main>
+  <Example />
+</main>
+
+<style lang="postcss">
+
 </style>
