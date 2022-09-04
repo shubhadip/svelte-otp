@@ -1,6 +1,6 @@
 {
   "name": "svelte-otp",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "svelte Otp",
   "type": "module",
   "scripts": {
