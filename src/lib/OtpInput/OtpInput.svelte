@@ -140,5 +140,5 @@
 </section>
 
 <style lang="postcss">
-  @import './otp.postcss';
+  @import './otp.css';
 </style>
