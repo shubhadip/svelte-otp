@@ -2,6 +2,7 @@
   "name": "svelte-otp",
   "private": true,
   "version": "0.0.0",
+  "description": "svelte Otp",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -73,5 +74,8 @@
     "commitizen": {
       "path": "git-cz"
     }
+  },
+  "dependencies": {
+    "svelte-prism": "^1.1.6"
   }
 }

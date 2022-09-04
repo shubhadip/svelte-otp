@@ -16,7 +16,7 @@
   export let customWrapperClass = '';
   export let customInputWrapperClass = '';
   export let maskInput = false;
-  export let autoFousNextOnInput = true;
+  export let autoFocusNextOnInput = true;
   export let focusPreviousOnDelete = true;
   export let emitEventOnPrefill = false;
 
@@ -58,7 +58,6 @@
       completevalue,
       isInputComplete: isInputComplete && completevalue.length === numberOfInputs,
     };
-
     if (extrakeys) {
       returnObj = {
         ...returnObj,
@@ -73,19 +72,20 @@
   }
 
   let components = getComponents();
-
-  async function prefillValueOnInitialValueChange() : Promise<void> {
-    if (initialValue !== undefined && initialValue.trim().length > 0) {
-      components = getComponents();
-      await tick();
-      if (emitEventOnPrefill) {
-        checkValidity(true, { onValueUpdateOrPrefill: true });
-      }
-    }
-  }
   
   $: {
+    /* eslint-disable */
+    async function prefillValueOnInitialValueChange() : Promise<void> {
+      if (initialValue !== undefined && initialValue.trim().length > 0) {
+        components = getComponents();
+        await tick();
+        if (emitEventOnPrefill) {
+          checkValidity(true, { onValueUpdateOrPrefill: true });
+        }
+      }
+    };
     prefillValueOnInitialValueChange();
+    /* eslint-enable */
   }
 
   const dispatch = createEventDispatcher();
@@ -107,7 +107,7 @@
       /* eslint-enable */
     }
 
-    if (!isDeleteEvent && autoFousNextOnInput) {
+    if (!isDeleteEvent && autoFocusNextOnInput) {
       nextIndex = currentIndex < components.length - 1 ? currentIndex + 1 : currentIndex;
       /* eslint-disable */
       const nextRef: {[x:string]: any} = components[nextIndex].ref;

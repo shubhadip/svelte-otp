@@ -16,6 +16,7 @@
 			handleChange(componentIndex, e);
 		}
   }
+
 </script>
 
 <svelte:window />
