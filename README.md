@@ -1,6 +1,8 @@
 
 # Svelte Otp 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/01cc3b58-429a-41d5-b1d4-f96641a3245f/deploy-status)](https://app.netlify.com/sites/svelte-otp/deploys)
+
 A Otp Component that can be used with Svelte. 
 
 # Install
@@ -14,6 +16,10 @@ yarn add svelte-otp
 - [Usage](#usage)
 - [Props](#available-props)
 - [Events](#events)
+
+## Demo
+
+To view a demo online: <https://svelte-otp.netlify.app/>
 
 To view demo examples locally clone the repo and run `npm install && npm run dev`
 
