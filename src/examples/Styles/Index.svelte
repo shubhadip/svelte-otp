@@ -1,5 +1,5 @@
 <script lang="ts">
-	import OtpInput from '../../lib/OtpInput/OtpInput.svelte';
+	import OtpInput from '../../lib/Index.svelte';
 </script>
   
 <main>

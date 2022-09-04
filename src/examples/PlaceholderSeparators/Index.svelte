@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Prism from 'svelte-prism'
-	import OtpInput from '../../lib/OtpInput/OtpInput.svelte';
+	import OtpInput from '../../lib/Index.svelte';
 	const PlaceholderValue = `
 		<OtpInput numberOfInputs={4} placeholder="****"  />`;
 	const SeparatorValue = `

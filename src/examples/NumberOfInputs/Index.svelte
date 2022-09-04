@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Prism from 'svelte-prism'
-	import OtpInput from '../../lib/OtpInput/OtpInput.svelte';
+	import OtpInput from '../../lib/Index.svelte';
 	const InputSix = `
 		<OtpInput numberOfInputs={6} />`;
 </script>

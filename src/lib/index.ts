@@ -1,3 +1,3 @@
-import OtpInput from "./OtpInput/OtpInput.svelte";
+import SvelteOtp from "./Index.svelte";
 
-export default OtpInput;
+export default SvelteOtp;

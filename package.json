@@ -1,6 +1,6 @@
 {
   "name": "svelte-otp",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "svelte Otp",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "prelint": "npm run format",
     "cz": "git-cz",
     "pkg:build": "svelte-package",
-    "postcss-convert": "postcss package/**/*.css --replace ",
+    "postcss-convert": "postcss package/*.css --replace && postcss package/**/*.css --replace ",
     "build:lib": "npm run pkg:build && npm run postcss-convert",
     "commit-message": "npm run commitlint -e -V",
     "semantic-release:local": "npm run build:lib && yarn build:demo && semantic-release --no-ci",
@@ -54,7 +54,8 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
-    "vite": "^3.1.0-beta.1"
+    "vite": "^3.1.0-beta.1",
+    "svelte-prism": "^1.1.6"
   },
   "lint-staged": {
     "*.{js,ts,svelte}": [
@@ -84,8 +85,5 @@
     "commitizen": {
       "path": "git-cz"
     }
-  },
-  "dependencies": {
-    "svelte-prism": "^1.1.6"
   }
 }

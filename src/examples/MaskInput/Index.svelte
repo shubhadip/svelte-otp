@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Prism from 'svelte-prism';
-	import OtpInput from '../../lib/OtpInput/OtpInput.svelte';
+	import OtpInput from '../../lib/Index.svelte';
 	const MaskingValue = `
 		<OtpInput separator="-" placeholder="****" numberOfInputs={4} maskInput={true} />`;
 </script>
