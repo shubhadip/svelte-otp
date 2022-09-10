@@ -41,5 +41,5 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking'
   ],
-	ignorePatterns: ['node_modules']
+	ignorePatterns: ['node_modules','coverage','src/__test__',"/jest.config.ts"]
 };
