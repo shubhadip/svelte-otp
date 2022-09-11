@@ -44,6 +44,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.8",
     "babel-jest": "^29.0.2",
+    "coveralls": "^3.1.1",
     "cssnano": "^5.1.13",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
