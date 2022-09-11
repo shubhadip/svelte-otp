@@ -29,7 +29,7 @@
 	<div class="example">
 		<Prefill />
 	</div>
-	
+
 </main>
 <style lang="postcss">
 	@import "./examples.postcss";
