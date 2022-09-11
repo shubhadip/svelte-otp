@@ -50,9 +50,20 @@ test("Case 3: Otp Component Renders masked Inputs", () => {
 		maskInput: true,
 	});
 	
-	screen.getAllByRole('input').forEach((o) => {
-		expect(o).toHaveAttribute('type', 'password');	
-	});
+	/**
+	 * need to find a better way
+	 * getByRole doesn't work since type is password
+	 */
+
+	const input = screen.getByTestId('elem-0')
+	const input2 = screen.getByTestId('elem-1')
+	const input3 = screen.getByTestId('elem-2')
+	const input4 = screen.getByTestId('elem-3')
+
+	expect(input).toHaveAttribute("type","password")
+	expect(input2).toHaveAttribute("type","password")
+	expect(input3).toHaveAttribute("type","password")
+	expect(input4).toHaveAttribute("type","password")
 
 });
 
@@ -63,7 +74,7 @@ test("Case 4: Otp Component Renders With Initial Value", () => {
 	/**
 	 * need to find a better way
 	 */
-	screen.getAllByRole('input').forEach((o, index) => {
+	screen.getAllByRole('textbox').forEach((o, index) => {
 		const shouldHaveValue = prefillValue[index]
 		expect(o).toHaveValue(shouldHaveValue)
 	})

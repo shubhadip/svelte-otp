@@ -24,7 +24,7 @@
 
 <div class={`${customInputWrapperClass} textcontainer`}>
   <input
-    role="input"
+    name="input"
 		type={inputType}
 		{placeholder}
 		{value}
