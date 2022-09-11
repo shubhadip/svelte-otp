@@ -7,6 +7,7 @@
   export let customInputWrapperClass = '';
   export let customInputClass = '';
   export let handleChange: (componentIndex: string, value: any) => void;
+  export let dataAttr = '';
 
   let component;
 
@@ -23,6 +24,7 @@
 
 <div class={`${customInputWrapperClass} textcontainer`}>
   <input
+    role="input"
 		type={inputType}
 		{placeholder}
 		{value}
@@ -30,6 +32,8 @@
 		maxlength={1}
 		class={`${customInputClass} inputclass`}
 		bind:this={component}
+    data-testid={dataAttr}
+    data-input={'elem'}
 		/>
 </div>
 

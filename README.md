@@ -1,6 +1,10 @@
 
 # Svelte Otp 
 
+[![Build Status](https://app.travis-ci.com/shubhadip/svelte-otp.svg?branch=main)](https://app.travis-ci.com/shubhadip/svelte-otp)
+
+[![codecov](https://codecov.io/gh/shubhadip/svelte-otp/branch/main/graph/badge.svg?token=P95PBOGESX)](https://codecov.io/gh/shubhadip/svelte-otp)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/01cc3b58-429a-41d5-b1d4-f96641a3245f/deploy-status)](https://app.netlify.com/sites/svelte-otp/deploys)
 
 A Otp Component that can be used with Svelte. 
@@ -125,7 +129,12 @@ function callbackFunction(event: CustomEvent) {
 | maskInput                     | Boolean         | false       | mask input values                        |
 | autoFocusNextOnInput          | Boolean         | true        | focus on next input after entering value              |
 | focusPreviousOnDelete         | Boolean         | true        | move focus to previous element on delete                   |
-| emitEventOnPrefill            | Boolean         | false       | emits events on filling all input fields                   |
+| customWrapperClass            | string          | false       | used to style wrapper element of otp                |
+| customSeparatorClass          | string          |             | used to style separator                   |
+| customRowClass                | string          |           	| used to style individual input                   |
+| customInputWrapperClass       | string	      |        		| used to style input wrapper                    |
+| customTextInputClass          | string          |        		| used to style input box                   |
+| emitEventOnPrefill            | string          |        		| emits events on filling all input fields                   |
 
 ## Events
 
