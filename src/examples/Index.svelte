@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberOfInputs from './NumberOfInputs/Index.svelte'
 	import PlaceholderSeparators from './PlaceholderSeparators/Index.svelte'
-	// import Styles from './Styles/Index.svelte'
+	import Styles from './Styles/Index.svelte'
 	import MaskInput from './MaskInput/Index.svelte'
 	import Focus from './Focus/Index.svelte'
 	import GetValue from './GetValue/Index.svelte'
@@ -23,9 +23,9 @@
 	<div class="example">
 		<GetValue />
 	</div>
-	<!-- <div class="example">
+	<div class="example">
 		<Styles />
-	</div> -->
+	</div>
 	<div class="example">
 		<Prefill />
 	</div>

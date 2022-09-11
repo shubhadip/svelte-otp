@@ -13,9 +13,10 @@
 		<div>
 			<OtpInput 
 				separator={"-"}
-				maskInput={true}
+				maskInput={false}
 				numberOfInputs={4}
 				placeholder={"****"}
+				initialValue={'1234'}
 			/>
 		</div>
 		<label class="textEmitted" for="name">Masking Input </label>
