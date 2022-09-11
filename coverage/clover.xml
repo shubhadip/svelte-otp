@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662866925122" clover="3.2.0">
-  <project timestamp="1662866925123" name="All files">
+<coverage generated="1662867335730" clover="3.2.0">
+  <project timestamp="1662867335730" name="All files">
     <metrics statements="51" coveredstatements="51" conditionals="47" coveredconditionals="42" methods="1" coveredmethods="1" elements="99" coveredelements="94" complexity="0" loc="51" ncloc="51" packages="1" files="1" classes="1"/>
     <file name="Index.svelte" path="/Users/shubhadipmaity/projects/svelte-journey/svelte-otp/src/lib/Index.svelte">
       <metrics statements="51" coveredstatements="51" conditionals="47" coveredconditionals="42" methods="1" coveredmethods="1"/>
