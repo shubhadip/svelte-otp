@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662815916997" clover="3.2.0">
-  <project timestamp="1662815916997" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0" elements="7" coveredelements="6" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
-    <file name="Index.svelte" path="/Users/shubhadipmaity/projects/svelte-journey/svelte-otp/src/lib/Button/Index.svelte">
-      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-      <line num="2" count="2" type="stmt"/>
-      <line num="4" count="2" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="11" count="3" type="cond" truecount="0" falsecount="1"/>
-      <line num="13" count="4" type="cond" truecount="1" falsecount="0"/>
+<coverage generated="1662866925122" clover="3.2.0">
+  <project timestamp="1662866925123" name="All files">
+    <metrics statements="51" coveredstatements="51" conditionals="47" coveredconditionals="42" methods="1" coveredmethods="1" elements="99" coveredelements="94" complexity="0" loc="51" ncloc="51" packages="1" files="1" classes="1"/>
+    <file name="Index.svelte" path="/Users/shubhadipmaity/projects/svelte-journey/svelte-otp/src/lib/Index.svelte">
+      <metrics statements="51" coveredstatements="51" conditionals="47" coveredconditionals="42" methods="1" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="9" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="10" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="11" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="12" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="13" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="14" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="16" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="17" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="18" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="19" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="20" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="21" count="10" type="cond" truecount="1" falsecount="0"/>
+      <line num="30" count="58" type="cond" truecount="2" falsecount="0"/>
+      <line num="31" count="58" type="cond" truecount="2" falsecount="0"/>
+      <line num="42" count="16" type="stmt"/>
+      <line num="43" count="16" type="stmt"/>
+      <line num="49" count="64" type="stmt"/>
+      <line num="52" count="16" type="stmt"/>
+      <line num="54" count="64" type="cond" truecount="2" falsecount="0"/>
+      <line num="62" count="16" type="stmt"/>
+      <line num="68" count="14" type="stmt"/>
+      <line num="70" count="2" type="stmt"/>
+      <line num="74" count="10" type="stmt"/>
+      <line num="80" count="4" type="stmt"/>
+      <line num="81" count="4" type="stmt"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="87" count="10" type="stmt"/>
+      <line num="91" count="10" type="stmt"/>
+      <line num="96" count="2" type="stmt"/>
+      <line num="100" count="12" type="stmt"/>
+      <line num="101" count="30" type="stmt"/>
+      <line num="105" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="107" count="4" type="stmt"/>
+      <line num="108" count="4" type="stmt"/>
+      <line num="113" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="115" count="8" type="stmt"/>
+      <line num="116" count="8" type="stmt"/>
+      <line num="120" count="12" type="stmt"/>
+      <line num="124" count="10" type="cond" truecount="2" falsecount="1"/>
+      <line num="125" count="20" type="stmt"/>
+      <line num="126" count="42" type="cond" truecount="2" falsecount="1"/>
+      <line num="128" count="84" type="cond" truecount="1" falsecount="0"/>
+      <line num="129" count="84" type="cond" truecount="1" falsecount="0"/>
+      <line num="131" count="84" type="cond" truecount="1" falsecount="0"/>
+      <line num="132" count="80" type="stmt"/>
+      <line num="133" count="42" type="cond" truecount="0" falsecount="1"/>
+      <line num="138" count="42" type="cond" truecount="2" falsecount="0"/>
+      <line num="139" count="64" type="cond" truecount="1" falsecount="2"/>
     </file>
   </project>
 </coverage>

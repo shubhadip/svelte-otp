@@ -38,7 +38,7 @@
       });
     }
   
-    function checkValidity(doNotify: boolean, extrakeys?: { [x: string]: any }): IInputValue | void {
+    function checkValidity(doNotify: boolean, extrakeys: { [x: string]: any } = {}): IInputValue | void {
       let completevalue = '';
       let isInputComplete = true;
   
@@ -61,7 +61,7 @@
       if (extrakeys) {
         returnObj = {
           ...returnObj,
-          ...(extrakeys || {}),
+          ...(extrakeys),
         };
       }
       if (doNotify) {
@@ -105,7 +105,7 @@
         nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex]?.ref;
-        nextRef?.$$?.ctx[5]?.focus();
+        nextRef?.$$?.ctx[6]?.focus();
         /* eslint-enable */
       }
   
@@ -113,7 +113,7 @@
         nextIndex = currentIndex < components.length - 1 ? currentIndex + 1 : currentIndex;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex].ref;
-        nextRef?.$$?.ctx[5]?.focus();
+        nextRef?.$$?.ctx[6]?.focus();
         /* eslint-enable */
       }
   
@@ -133,6 +133,7 @@
           customInputClass={customTextInputClass}
           {customInputWrapperClass}
           {maskInput}
+          dataAttr={`elem-${index}`}
         />
         {#if index !== components.length - 1}
           <p class={`${customSeparatorClass} separator`}>{separator}</p>

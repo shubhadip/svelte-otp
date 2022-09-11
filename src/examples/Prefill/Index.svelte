@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Prism from 'svelte-prism';
 	import OtpInput from '../../lib/Index.svelte';
-	let value = '';
+	let value = '2345';
 	let otpInstance
 
 	function callbackFunction(event: CustomEvent) {
