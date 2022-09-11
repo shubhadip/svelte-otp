@@ -125,7 +125,12 @@ function callbackFunction(event: CustomEvent) {
 | maskInput                     | Boolean         | false       | mask input values                        |
 | autoFocusNextOnInput          | Boolean         | true        | focus on next input after entering value              |
 | focusPreviousOnDelete         | Boolean         | true        | move focus to previous element on delete                   |
-| emitEventOnPrefill            | Boolean         | false       | emits events on filling all input fields                   |
+| customWrapperClass            | string          | false       | used to style wrapper element of otp                |
+| customSeparatorClass          | string          |             | used to style separator                   |
+| customRowClass                | string          |           	| used to style individual input                   |
+| customInputWrapperClass       | string	      |        		| used to style input wrapper                    |
+| customTextInputClass          | string          |        		| used to style input box                   |
+| emitEventOnPrefill            | string          |        		| emits events on filling all input fields                   |
 
 ## Events
 
