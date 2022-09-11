@@ -10,3 +10,4 @@ dist/index.html
 dist/webpack-stats.json
 tests/
 coverage/
+package/

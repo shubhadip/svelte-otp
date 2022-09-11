@@ -1,8 +1,9 @@
 {
   "name": "svelte-otp",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "svelte Otp",
   "type": "module",
+  "main": "./package",
   "scripts": {
     "dev": "vite",
     "build:demo": "vite build",
@@ -17,7 +18,7 @@
     "postcss-convert": "postcss package/*.css --replace && postcss package/**/*.css --replace ",
     "build:lib": "npm run pkg:build && npm run postcss-convert",
     "commit-message": "npm run commitlint -e -V",
-    "semantic-release:local": "npm run build:lib && yarn build:demo && semantic-release --no-ci",
+    "semantic-release:local": "npm run build:lib && npm build:demo && cd ./package semantic-release --no-ci",
     "semantic-release": "semantic-release",
     "test": "jest",
     "test:watch": "npm run test -- --watch"
