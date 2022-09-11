@@ -1,6 +1,8 @@
 
 # Svelte Otp 
 
+[![Build Status](https://app.travis-ci.com/shubhadip/svelte-otp.svg?branch=main)](https://app.travis-ci.com/shubhadip/svelte-otp)
+
 [![codecov](https://codecov.io/gh/shubhadip/svelte-otp/branch/main/graph/badge.svg?token=P95PBOGESX)](https://codecov.io/gh/shubhadip/svelte-otp)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/01cc3b58-429a-41d5-b1d4-f96641a3245f/deploy-status)](https://app.netlify.com/sites/svelte-otp/deploys)
