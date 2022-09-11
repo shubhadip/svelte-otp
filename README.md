@@ -1,5 +1,5 @@
 
-# Svelte Otp 
+# Svelte Otp
 
 [![Build Status](https://app.travis-ci.com/shubhadip/svelte-otp.svg?branch=main)](https://app.travis-ci.com/shubhadip/svelte-otp)
 
@@ -7,7 +7,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/01cc3b58-429a-41d5-b1d4-f96641a3245f/deploy-status)](https://app.netlify.com/sites/svelte-otp/deploys)
 
-A Otp Component that can be used with Svelte. 
+A Otp Component that can be used with Svelte.
 
 # Install
 ``` bash
@@ -28,10 +28,10 @@ To view a demo online: <https://svelte-otp.netlify.app/>
 To view demo examples locally clone the repo and run `npm install && npm run dev`
 
 ``` javascript
-import SvelteOtp from 'svelte-otp';
+import OtpInput from 'svelte-otp';
 
-// main 
-<SvelteOtp	
+// main
+<OtpInput
     separator="-"
     placeholder="0000"
     ...
@@ -41,7 +41,7 @@ import SvelteOtp from 'svelte-otp';
 ## Usage
 
 ``` html
-<SvelteOtp	
+<OtpInput
 		separator="-"
 		placeholder="0000"
         ...
@@ -51,23 +51,23 @@ import SvelteOtp from 'svelte-otp';
 ***numberOfInputs* prop**
 
 ``` html
-    <SvelteOtp numberOfInputs={6} />
+    <OtpInput numberOfInputs={6} />
 ```
 ***numberOfInputs* along with *separator*prop**
 ``` html
-<SvelteOtp numberOfInputs={4} separator="-"  />
+<OtpInput numberOfInputs={4} separator="-"  />
 ```
 **Using *numberOfInputs*, *separator* and *placeholder* props**
 ``` html
-<SvelteOtp separator="-" placeholder="******" numberOfInputs={6}  />
+<OtpInput separator="-" placeholder="******" numberOfInputs={6}  />
 ```
 **Masking Input**
 ``` html
-<SvelteOtp separator="-" placeholder="****" numberOfInputs={4} maskInput={true} />
+<OtpInput separator="-" placeholder="****" numberOfInputs={4} maskInput={true} />
 ```
 **Change Focus on Input/Delete**
 ``` html
-<SvelteOtp 
+<OtpInput
 	...
 	autoFocusNextOnInput={true}
 	focusPreviousOnDelete={true}
@@ -77,11 +77,11 @@ import SvelteOtp from 'svelte-otp';
 ```html
     let otpInstance: {getValue: () => void};
     function handleClick() {
-        console.log('value on click', 
+        console.log('value on click',
             otpInstance?.getValue());
     }
 	...
-<SvelteOtp 
+<OtpInput
 		...
 		bind:this={otpInstance}
 	/>
@@ -95,7 +95,7 @@ function callbackFunction(event: CustomEvent) {
 function handlePrefill() {
     value = '123456';
 }
-<SvelteOtp
+<OtpInput
 		...
         bind:initialValue={value}
 		on:notify={callbackFunction}
@@ -111,7 +111,7 @@ function callbackFunction(event: CustomEvent) {
     console.log('emittedValue', event.detail);
 }
 
-<SvelteOtp
+<OtpInput
 		...
 		on:notify={callbackFunction}
 		...
