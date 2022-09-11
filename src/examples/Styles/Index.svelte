@@ -34,19 +34,9 @@
 	</div>
 </main>
 <style lang="postcss">
-	.customTextInputClass {
-
-	}
-	.customSeparatorClass {
-		
-	}
-	.customRowClass {
-
-	}
-	.customWrapperClass {
-
-	}
-	.customWrapperClass {
-
-	}
+	.customTextInputClass {}
+	.customSeparatorClass {}
+	.customRowClass {}
+	.customWrapperClass {}
+	.customWrapperClass {}
 </style>
