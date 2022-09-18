@@ -7,6 +7,8 @@
         ["@semantic-release/npm", {
             "pkgRoot": "package"
         }],
-        "@semantic-release/git"
+        ["@semantic-release/git", {
+            "assets": ["package/"]
+        }]
     ]
 }
