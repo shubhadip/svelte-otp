@@ -216,6 +216,11 @@ button:focus-visible {
   -webkit-text-fill-color: transparent;
 }
 
+.text {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
 .feature-list--card {
   padding: 2rem;
   background-color: transparent;

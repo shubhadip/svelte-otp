@@ -35,9 +35,9 @@
       </div>
       <p class="subtitle">Powerful OTP Input</p>
       <p class="subtitle">Component for Svelte</p>
-      <p>Lightweight & reusable OTP input component for svelte projects.</p>
+      <p class="text">Lightweight & reusable OTP input component for Svelte projects.</p>
       <div class="try-out">
-        <a class="links" href="/about">
+        <a class="links" href="/examples">
           <img class="icon" src="./src/assets/icons/laptop_mac.svg" alt="" />Get Started
         </a>
         <a class="links" href="https://github.com/shubhadip/svelte-otp">
