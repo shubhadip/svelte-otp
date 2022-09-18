@@ -71,3 +71,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.customTextInputClass {
+  background-color: white;
+}
+.customSeparatorClass {
+  background-color: black;
+}
+.customRowClass {
+  border: 1px solid red;
+}
+.customWrapperClass {
+  border: 0px;
+}
+.customWrapperClass {
+  border: 0px;
+}

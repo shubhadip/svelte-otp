@@ -8,7 +8,7 @@
   export let customInputClass = '';
   export let handleChange: (componentIndex: string, value: any) => void;
   export let dataAttr = '';
-
+  // @ts-ignore
   let component;
 
   function onChange(e: Event & { currentTarget: EventTarget & HTMLInputElement }): void {

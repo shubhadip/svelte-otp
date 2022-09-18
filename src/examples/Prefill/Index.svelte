@@ -2,6 +2,7 @@
 	import Prism from 'svelte-prism';
 	import OtpInput from '../../lib/Index.svelte';
 	let value = '2345';
+	// @ts-ignore
 	let otpInstance
 
 	function callbackFunction(event: CustomEvent) {
