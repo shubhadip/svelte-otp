@@ -66,7 +66,12 @@
         <label class="textEmitted" for="name">Focus Change on Input/Delete </label>
       </div>
     </div>
+
     <!-- <Example /> -->
+  </div>
+  <div class="footer">
+    <div>Released under the MIT License</div>
+    <div><span>© 2022 OTP Input for Svelte</span><span>author <a target="_blank" href="https://github.com/shubhadip/" class="link">shubhadip</a></span></div>
   </div>
   <!-- <Example /> -->
 </main>

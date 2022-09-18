@@ -162,7 +162,7 @@ button:focus-visible {
   margin: 0 auto;
   padding: 150px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -260,6 +260,24 @@ button:focus-visible {
       opacity: 1;
       background-color: #00f5a0;
       color: #3f5efb;
+    }
+  }
+}
+
+.footer {
+  max-width: 1920px;
+  text-align: center;
+  margin: 0 auto;
+  span {
+    margin-right: 2rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .link {
+    color: #f9f9f9;
+    &:hover {
+      color: #00f5a0;
     }
   }
 }
