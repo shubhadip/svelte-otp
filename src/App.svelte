@@ -19,6 +19,7 @@
       <a class="links" href="/about">OTP Input</a>
     </h1>
     <div class="header-links">
+      <a class="links" target="_blank" href="/api">API</a>
       <a class="links" target="_blank" href="https://github.com/shubhadip/svelte-otp/releases/tag/v1.0.2">v1.0.2 </a>
     </div>
   </header>
@@ -39,7 +40,7 @@
         <a class="links" href="/about">
           <img class="icon" src="./src/assets/icons/laptop_mac.svg" alt="">Get Started
         </a>
-        <a class="links" href="/">
+        <a class="links" href="https://github.com/shubhadip/svelte-otp">
           <img class="icon" src="./src/assets/icons/github.svg" alt="">Github
         </a>
         <a class="links" href="/">
