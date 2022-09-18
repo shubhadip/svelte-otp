@@ -1,5 +1,55 @@
+/* author: shreyas jani | backslashr
+https://github.com/hey-shrey
+https://heyshrey.com/tools/minimal-css-reset/
+License: none (public domain)
+*/
+
+/* base font size at 16px */
+html {
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -37,7 +87,9 @@ h1 {
 
 #app {
   padding: 2rem;
-  text-align: center;
+  background: #fc466b;
+  background: -webkit-linear-gradient(to left, #fc466b, #3f5efb);
+  background: linear-gradient(to left, #fc466b, #3f5efb);
 }
 
 button {
@@ -69,5 +121,108 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+.header-logo {
+  & .links {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    &:hover {
+      border-color: unset;
+      background-color: unset;
+    }
+  }
+}
+
+.links {
+  margin: 0 1rem;
+  color: #f9f9f9;
+  padding: 1rem;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  &:hover {
+    border-color: #f9f9f9;
+    background-color: #3f5efb;
+    color: #00f5a0;
+  }
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-wrapper {
+  padding: 150px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.otp-block-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  .otp-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-4) fixed;
+    background-size: 12ch 7ch;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 6px;
+    font-weight: 700;
+    position: relative;
+    padding: 16px 10px;
+    border: 2px solid white;
+    border-radius: 4px;
+    & p {
+      transition: border-radius 300ms ease-in-out, background 300ms ease-in-out;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 16px;
+      text-align: center;
+      &:hover {
+        border-radius: 50%;
+        background: var(--gradient-4) fixed;
+      }
+    }
+  }
+}
+
+.subtitle {
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -3.4px;
+  background: var(--gradient-4) fixed;
+  background-size: 12ch 7ch;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.codesnippet-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #f6f7f6;
+  & .codesnippet .language-html{
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 }
