@@ -87,6 +87,7 @@ h1 {
 
 #app {
   padding: 2rem;
+  height: 100vh;
   background: #fc466b;
   background: -webkit-linear-gradient(to left, #fc466b, #3f5efb);
   background: linear-gradient(to left, #fc466b, #3f5efb);
@@ -163,7 +164,7 @@ button:focus-visible {
   padding: 150px 0;
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .otp-block-wrapper {
@@ -215,18 +216,15 @@ button:focus-visible {
   -webkit-text-fill-color: transparent;
 }
 
-.codesnippet-card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 2px solid #f9f9f9;
+.feature-list--card {
   padding: 2rem;
   background-color: transparent;
-  & .codesnippet .language-html {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  .title {
+    text-align: center;
+    margin: 2rem 0;
+    &:first-of-type {
+      margin: 0 0 2rem;
+    }
   }
 }
 

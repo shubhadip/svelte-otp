@@ -38,32 +38,36 @@
       <p>Lightweight & reusable OTP input component for svelte projects.</p>
       <div class="try-out">
         <a class="links" href="/about">
-          <img class="icon" src="./src/assets/icons/laptop_mac.svg" alt="">Get Started
+          <img class="icon" src="./src/assets/icons/laptop_mac.svg" alt="" />Get Started
         </a>
         <a class="links" href="https://github.com/shubhadip/svelte-otp">
-          <img class="icon" src="./src/assets/icons/github.svg" alt="">Github
+          <img class="icon" src="./src/assets/icons/github.svg" alt="" />Github
         </a>
         <a class="links" href="/">
-          <img class="icon" src="./src/assets/icons/code.svg" alt="">Playground
+          <img class="icon" src="./src/assets/icons/code.svg" alt="" />Playground
         </a>
       </div>
     </div>
     <div class="right">
-      <div class="codesnippet-card">
-        <div class="codesnippet">
-          <Prism language="html" source={FocusValue} />
-        </div>
-        <div>
-          <OtpInput
-            separator={'-'}
-            maskInput={true}
-            numberOfInputs={4}
-            placeholder={'****'}
-            autoFocusNextOnInput={true}
-            focusPreviousOnDelete={true}
-          />
-        </div>
-        <label class="textEmitted" for="name">Focus Change on Input/Delete </label>
+      <div class="feature-list feature-list--card">
+        <div class="title">Focus change on Input/Delete</div>
+        <OtpInput
+          separator={'-'}
+          maskInput={true}
+          numberOfInputs={4}
+          placeholder={'****'}
+          autoFocusNextOnInput={true}
+          focusPreviousOnDelete={true}
+        />
+        <div class="title">OTP input with 6 number of inputs</div>
+        <OtpInput
+          separator={'-'}
+          placeholder={'------'}
+          maskInput={true}
+          numberOfInputs={6}
+          autoFocusNextOnInput={true}
+          focusPreviousOnDelete={true}
+        />
       </div>
     </div>
 
@@ -71,7 +75,11 @@
   </div>
   <div class="footer">
     <div>Released under the MIT License</div>
-    <div><span>© 2022 OTP Input for Svelte</span><span>author <a target="_blank" href="https://github.com/shubhadip/" class="link">shubhadip</a></span></div>
+    <div>
+      <span>© 2022 OTP Input for Svelte</span><span
+        >author <a target="_blank" href="https://github.com/shubhadip/" class="link">shubhadip</a></span
+      >
+    </div>
   </div>
   <!-- <Example /> -->
 </main>
