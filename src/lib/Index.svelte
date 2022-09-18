@@ -19,7 +19,7 @@
     export let autoFocusNextOnInput = true;
     export let focusPreviousOnDelete = true;
     export let emitEventOnPrefill = false;
-  
+    export let isDark = false
     function getComponents(): {
       componentIndex: string;
       ref: any | null;
@@ -134,9 +134,10 @@
           {customInputWrapperClass}
           {maskInput}
           dataAttr={`elem-${index}`}
+          isDark={isDark}
         />
         {#if index !== components.length - 1}
-          <p class={`${customSeparatorClass} separator`}>{separator}</p>
+          <div class={`${customSeparatorClass} separator`}>{separator}</div>
         {/if}
       </div>
     {/each}
