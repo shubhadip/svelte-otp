@@ -63,7 +63,7 @@
         <OtpInput
           separator={'-'}
           placeholder={'------'}
-          maskInput={true}
+          maskInput={false}
           numberOfInputs={6}
           autoFocusNextOnInput={true}
           focusPreviousOnDelete={true}
