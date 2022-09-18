@@ -2,6 +2,6 @@
   import Example from './examples/Index.svelte';
 </script>
 
-<div>
+<main>
   <Example />
-</div>
+</main>
