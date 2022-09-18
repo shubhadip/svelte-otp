@@ -19,10 +19,7 @@
       <a class="links" href="/about">OTP Input</a>
     </h1>
     <div class="header-links">
-      <a class="links" href="/about">About</a>
-      <a class="links" href="/">Usage</a>
-      <a class="links" href="/">Github</a>
-      <a class="links" href="/">Contact</a>
+      <a class="links" target="_blank" href="https://github.com/shubhadip/svelte-otp/releases/tag/v1.0.2">v1.0.2 </a>
     </div>
   </header>
   <div class="content-wrapper">
@@ -35,8 +32,20 @@
         <div class="otp-block"><p>T</p></div>
         <div class="otp-block"><p>E</p></div>
       </div>
-      <p class="subtitle">Supernatural OTP Input</p>
+      <p class="subtitle">Powerful OTP Input</p>
       <p class="subtitle">Component for Svelte</p>
+      <p>Lightweight & reusable OTP input component for svelte projects.</p>
+      <div class="try-out">
+        <a class="links" href="/about">
+          <img class="icon" src="./src/assets/icons/laptop_mac.svg" alt="">Get Started
+        </a>
+        <a class="links" href="/">
+          <img class="icon" src="./src/assets/icons/github.svg" alt="">Github
+        </a>
+        <a class="links" href="/">
+          <img class="icon" src="./src/assets/icons/code.svg" alt="">Playground
+        </a>
+      </div>
     </div>
     <div class="right">
       <div class="codesnippet-card">
