@@ -1,9 +1,8 @@
 {
   "name": "svelte-otp",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "svelte Otp",
   "type": "module",
-  "main": "./package",
   "scripts": {
     "dev": "vite",
     "build:demo": "vite build",
