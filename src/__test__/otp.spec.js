@@ -189,7 +189,7 @@ test("Case 5: Delete Event to Change Focus to Previous element", async () => {
 
 test("Case 6: Get Value programatically", async () => {
 	const { component } = render(Otp, { separator: "-", placeholder: "0000", numberOfInputs: 4, initialValue: '1234' });
-	const ResponseWithInitialValue = component.$$.ctx[15]()
+	const ResponseWithInitialValue = component.$$.ctx[16]()
 	expect(ResponseWithInitialValue).toEqual({ completevalue: '1234', isInputComplete: true })
 
 	const input = screen.getByTestId('elem-0')
@@ -202,7 +202,7 @@ test("Case 6: Get Value programatically", async () => {
 	await fireEvent.input(input3, {target: {value: '4'}})
 	await fireEvent.input(input4, {target: {value: '5'}})
 
-	const ResponseWithInputValue = component.$$.ctx[15]()
+	const ResponseWithInputValue = component.$$.ctx[16]()
 	expect(ResponseWithInputValue).toEqual({ completevalue: '2345', isInputComplete: true })
 });
 
