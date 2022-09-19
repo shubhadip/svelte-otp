@@ -105,7 +105,7 @@
         nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex]?.ref;
-        nextRef?.$$?.ctx[6]?.focus();
+        nextRef?.$$?.ctx[7]?.focus();
         /* eslint-enable */
       }
   
@@ -113,7 +113,7 @@
         nextIndex = currentIndex < components.length - 1 ? currentIndex + 1 : currentIndex;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex].ref;
-        nextRef?.$$?.ctx[6]?.focus();
+        nextRef?.$$?.ctx[7]?.focus();
         /* eslint-enable */
       }
   
