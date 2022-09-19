@@ -2,7 +2,7 @@
 	import Prism from 'svelte-prism'
 	import OtpInput from '../../lib/Index.svelte';
 	const InputSix = `
-		<OtpInput numberOfInputs={6} />`;
+		<OtpInput numberOfInputs={6} isDark={true} />`;
 </script>
   
 <main>
@@ -12,7 +12,7 @@
 				<Prism language="html" source="{InputSix}" />
 			</div>
 			<div>
-				<OtpInput numberOfInputs={6} />
+				<OtpInput numberOfInputs={6} isDark={true} />
 			</div>
 			<label class="textEmitted" for="number-of-inputs">Number Of Inputs</label>
 		</div>

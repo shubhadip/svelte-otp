@@ -8,6 +8,7 @@
   export let customInputClass = '';
   export let handleChange: (componentIndex: string, value: any) => void;
   export let dataAttr = '';
+  export let isDark = false;
 
   let component;
 
@@ -22,7 +23,7 @@
 
 <svelte:window />
 
-<div class={`${customInputWrapperClass} textcontainer`}>
+<div class={`${customInputWrapperClass} textcontainer ${isDark ? 'isdark' : ' ' }`}>
   <input
     name="input"
 		type={inputType}

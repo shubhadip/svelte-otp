@@ -19,7 +19,7 @@
     export let autoFocusNextOnInput = true;
     export let focusPreviousOnDelete = true;
     export let emitEventOnPrefill = false;
-  
+    export let isDark = false
     function getComponents(): {
       componentIndex: string;
       ref: any | null;
@@ -105,7 +105,7 @@
         nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex]?.ref;
-        nextRef?.$$?.ctx[6]?.focus();
+        nextRef?.$$?.ctx[7]?.focus();
         /* eslint-enable */
       }
   
@@ -113,7 +113,7 @@
         nextIndex = currentIndex < components.length - 1 ? currentIndex + 1 : currentIndex;
         /* eslint-disable */
         const nextRef: {[x:string]: any} = components[nextIndex].ref;
-        nextRef?.$$?.ctx[6]?.focus();
+        nextRef?.$$?.ctx[7]?.focus();
         /* eslint-enable */
       }
   
@@ -134,9 +134,10 @@
           {customInputWrapperClass}
           {maskInput}
           dataAttr={`elem-${index}`}
+          isDark={isDark}
         />
         {#if index !== components.length - 1}
-          <p class={`${customSeparatorClass} separator`}>{separator}</p>
+          <div class={`${customSeparatorClass} separator`}>{separator}</div>
         {/if}
       </div>
     {/each}
