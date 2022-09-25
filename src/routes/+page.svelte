@@ -1,6 +1,5 @@
 <script lang="ts">
   import OtpInput from '../lib/Index.svelte';
-
 </script>
 <main>
   <header class="header-wrapper">
