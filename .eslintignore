@@ -11,5 +11,5 @@ dist/webpack-stats.json
 tests/
 coverage/
 package/
-.svelte-kit/
+.svelte-kit/*
 dist/

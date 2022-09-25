@@ -12,7 +12,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write ./src/**/*.{svelte,ts}",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint:fix": "eslint --fix --no-error-on-unmatched-pattern",
     "prelint": "npm run format",
     "cz": "git-cz",
     "pkg:build": "svelte-package",

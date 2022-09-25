@@ -40,6 +40,7 @@
 	],
 	"exclude": [
 		"../node_modules/**",
-		"./[!ambient.d.ts]**"
+		"./[!ambient.d.ts]**",
+		"./svelte-kit/**"
 	]
 }

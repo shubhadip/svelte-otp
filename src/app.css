@@ -1,5 +1,55 @@
+/* author: shreyas jani | backslashr
+https://github.com/hey-shrey
+https://heyshrey.com/tools/minimal-css-reset/
+License: none (public domain)
+*/
+
+/* base font size at 16px */
+html {
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -7,7 +57,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+  --gradient-4: linear-gradient(to bottom right, #00f5a0, #00d9f5);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +87,10 @@ h1 {
 
 #app {
   padding: 2rem;
-  text-align: center;
+  height: 100vh;
+  background: #fc466b;
+  background: -webkit-linear-gradient(to left, #fc466b, #3f5efb);
+  background: linear-gradient(to left, #fc466b, #3f5efb);
 }
 
 button {
@@ -87,4 +140,164 @@ button:focus-visible {
 }
 .customWrapperClass {
   border: 0px;
+}
+
+.header-logo {
+  & .links {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    &:hover {
+      border-color: unset;
+      background-color: unset;
+    }
+  }
+}
+
+.links {
+  margin: 0 1rem;
+  color: #f9f9f9;
+  padding: 1rem;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  &:hover {
+    border-color: #f9f9f9;
+    background-color: #3f5efb;
+    color: #00f5a0;
+  }
+}
+
+.header-wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 150px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.otp-block-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  .otp-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-4) fixed;
+    background-size: 12ch 7ch;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 6px;
+    font-weight: 700;
+    position: relative;
+    padding: 16px 10px;
+    border: 2px solid white;
+    border-radius: 4px;
+    & p {
+      transition: border-radius 300ms ease-in-out, background 300ms ease-in-out;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 16px;
+      text-align: center;
+      &:hover {
+        border-radius: 50%;
+        background: var(--gradient-4) fixed;
+      }
+    }
+  }
+}
+
+.subtitle {
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -3.4px;
+  background: var(--gradient-4) fixed;
+  background-size: 12ch 7ch;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
+.feature-list--card {
+  padding: 2rem;
+  background-color: transparent;
+  .title {
+    text-align: center;
+    margin: 2rem 0;
+    &:first-of-type {
+      margin: 0 0 2rem;
+    }
+  }
+}
+
+.try-out {
+  margin: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .links {
+    flex: 1 0 33%;
+    margin: 0 1rem 0 0;
+    min-width: 150px;
+    min-height: 64px;
+    border: 1px solid #f9f9f9;
+    display: flex;
+    align-items: center;
+    &:first-child {
+      background-color: #00f5a0;
+      color: #3f5efb;
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in, color 0.3s ease-in;
+    }
+    & .icon {
+      max-width: 28px;
+      max-height: 28px;
+      object-fit: contain;
+      object-position: center;
+      margin-right: 1rem;
+    }
+    &:hover {
+      opacity: 1;
+      background-color: #00f5a0;
+      color: #3f5efb;
+    }
+  }
+}
+
+.footer {
+  max-width: 1920px;
+  text-align: center;
+  margin: 0 auto;
+  span {
+    margin-right: 2rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .link {
+    color: #f9f9f9;
+    &:hover {
+      color: #00f5a0;
+    }
+  }
 }

@@ -24,5 +24,5 @@ module.exports = {
 		es2017: true,
 		node: true
 	},
-	ignorePatterns: ['dist','*.cjs','.svelte-kit/','package/','node_modules','coverage','src/__test__',"/jest.config.ts"]
+	ignorePatterns: ['dist','*.cjs','.svelte-kit','package/','node_modules','coverage','src/__test__',"/jest.config.ts"]
 };
