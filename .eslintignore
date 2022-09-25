@@ -12,3 +12,4 @@ tests/
 coverage/
 package/
 .svelte-kit/
+dist/
