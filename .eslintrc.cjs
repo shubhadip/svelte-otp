@@ -1,7 +1,7 @@
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
-	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'prettier'],
 	plugins: ['svelte3', '@typescript-eslint'],
 	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' },{
 		files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
@@ -17,12 +17,15 @@ module.exports = {
 	},
 	parserOptions: {
 		sourceType: 'module',
-		ecmaVersion: 2020
+		ecmaVersion: 2020,
+		tsconfigRootDir: __dirname,
+		project: ['./tsconfig.json'],
+		extraFileExtensions: ['.svelte'],
 	},
 	env: {
 		browser: true,
 		es2017: true,
 		node: true
 	},
-	ignorePatterns: ['dist','*.cjs','.svelte-kit','package/','node_modules','coverage','src/__test__',"/jest.config.ts"]
+	ignorePatterns: ['CHANGELOG.md', 'dist','*.cjs','.svelte-kit','package/','node_modules','coverage','src/__test__',"/jest.config.ts"]
 };
