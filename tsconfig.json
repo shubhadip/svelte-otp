@@ -36,10 +36,11 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
+		"strict": true,
+		"typeRoots": [ "./node_modules/@types","./src/types" ]
 	},
 	"exclude": ["dist","./jest.config.ts","package"],
-	"include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
+	"include": ["*.ts", "src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
 	// "references": [{ "path": "./tsconfig.node.json" }]
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
