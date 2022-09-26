@@ -33,10 +33,7 @@
 		<label class="textEmitted" for="name">Css Classes</label>
 	</div>
 </main>
+
 <style lang="postcss">
-	.customTextInputClass {}
-	.customSeparatorClass {}
-	.customRowClass {}
-	.customWrapperClass {}
-	.customWrapperClass {}
+	@import './stylecss.postcss';
 </style>

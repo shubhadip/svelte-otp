@@ -208,9 +208,7 @@
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
 <a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,8 +251,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,160 +354,158 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script lang="ts"&gt;
-    import { createEventDispatcher, tick } from 'svelte';
-    import TextInput from './TextInput/Index.svelte';
-    interface IInputValue {
-      completevalue: string;
-      isInputComplete: boolean;
-    }
-  
-    export let numberOfInputs = 4;
-    export let separator = '-';
-    export let initialValue = '';
-    export let placeholder = '';
-    export let customTextInputClass = '';
-    export let customSeparatorClass = '';
-    export let customRowClass = '';
-    export let customWrapperClass = '';
-    export let customInputWrapperClass = '';
-    export let maskInput = false;
-    export let autoFocusNextOnInput = true;
-    export let focusPreviousOnDelete = true;
-    export let emitEventOnPrefill = false;
-  
-    function getComponents(): {
-      componentIndex: string;
-      ref: any | null;
-      initialValue: string;
-      placeholder: string;
-    }[] {
-      return Array.from(Array(numberOfInputs).keys()).map((i: number) =&gt; {
-        const initVal = initialValue[i] || '';
-        const initPlaceholder = placeholder[i] || '';
-        return {
-          componentIndex: `otp${i}`,
-          ref: null,
-          initialValue: initVal,
-          placeholder: initPlaceholder,
-        };
-      });
-    }
-  
-    function checkValidity(doNotify: boolean, extrakeys: { [x: string]: any } = {}): IInputValue | void {
-      let completevalue = '';
-      let isInputComplete = true;
-  
-      components.forEach((i: {
-        [x: string]: any
-      }) =&gt; {
-        /* eslint-disable */
-        let value: string = `${i?.ref?.$$?.ctx[0]}` as string;
-        /* eslint-enable */
-        if (!value) {
-          isInputComplete = false;
-        }
-        completevalue += value || ' ';
-      });
-  
-      let returnObj = {
-        completevalue,
-        isInputComplete: isInputComplete &amp;&amp; completevalue.length === numberOfInputs,
+  import { createEventDispatcher, tick } from 'svelte';
+  import TextInput from './TextInput/Index.svelte';
+  interface IInputValue {
+    completevalue: string;
+    isInputComplete: boolean;
+  }
+&nbsp;
+  export let numberOfInputs = 4;
+  export let separator = '-';
+  export let initialValue = '';
+  export let placeholder = '';
+  export let customTextInputClass = '';
+  export let customSeparatorClass = '';
+  export let customRowClass = '';
+  export let customWrapperClass = '';
+  export let customInputWrapperClass = '';
+  export let maskInput = false;
+  export let autoFocusNextOnInput = true;
+  export let focusPreviousOnDelete = true;
+  export let emitEventOnPrefill = false;
+&nbsp;
+  function getComponents(): {
+    componentIndex: string;
+    ref: any | null;
+    initialValue: string;
+    placeholder: string;
+  }[] {
+    return Array.from(Array(numberOfInputs).keys()).map((i: number) =&gt; {
+      const initVal = initialValue[i] || '';
+      const initPlaceholder = placeholder[i] || '';
+      return {
+        componentIndex: `otp${i}`,
+        ref: null,
+        initialValue: initVal,
+        placeholder: initPlaceholder,
       };
-      if (extrakeys) {
-        returnObj = {
-          ...returnObj,
-          ...(extrakeys),
-        };
-      }
-      if (doNotify) {
-        dispatch('notify', returnObj);
-      } else {
-        return returnObj;
-      }
-    }
-  
-    let components = getComponents();
-    
-    $: {
+    });
+  }
+&nbsp;
+  function checkValidity(doNotify: boolean, extrakeys: { [x: string]: any } = {}): IInputValue | void {
+    let completevalue = '';
+    let isInputComplete = true;
+&nbsp;
+    components.forEach((i: { [x: string]: any }) =&gt; {
       /* eslint-disable */
-      async function prefillValueOnInitialValueChange() : Promise&lt;void&gt; {
-        if (initialValue !== undefined &amp;&amp; initialValue.trim().length &gt; 0) {
-          components = getComponents();
-          await tick();
-          if (emitEventOnPrefill) {
-            checkValidity(true, { onValueUpdateOrPrefill: true });
-          }
-        }
+      let value: string = `${i?.ref?.$$?.ctx[0]}` as string;
+      /* eslint-enable */
+      if (!value) {
+        isInputComplete = false;
+      }
+      completevalue += value || ' ';
+    });
+&nbsp;
+    let returnObj = {
+      completevalue,
+      isInputComplete: isInputComplete &amp;&amp; completevalue.length === numberOfInputs,
+    };
+    if (extrakeys) {
+      returnObj = {
+        ...returnObj,
+        ...extrakeys,
       };
-      prefillValueOnInitialValueChange();
+    }
+    if (doNotify) {
+      dispatch('notify', returnObj);
+    } else {
+      return returnObj;
+    }
+  }
+&nbsp;
+  let components = getComponents();
+&nbsp;
+  $: {
+    /* eslint-disable */
+    async function prefillValueOnInitialValueChange(): Promise&lt;void&gt; {
+      if (initialValue !== undefined &amp;&amp; initialValue.trim().length &gt; 0) {
+        components = getComponents();
+        await tick();
+        if (emitEventOnPrefill) {
+          checkValidity(true, { onValueUpdateOrPrefill: true });
+        }
+      }
+    }
+    prefillValueOnInitialValueChange();
+    /* eslint-enable */
+  }
+&nbsp;
+  const dispatch = createEventDispatcher&lt;{
+    notify: IInputValue;
+  }&gt;();
+&nbsp;
+  export const getValue = (): IInputValue =&gt; {
+    return checkValidity(false) as IInputValue;
+  };
+&nbsp;
+  const handleChange = (currentElement: string, event: InputEvent): void =&gt; {
+    const isDeleteEvent = event.inputType === 'deleteContentBackward';
+    const currentIndex = components.findIndex((i) =&gt; i.componentIndex === currentElement);
+    let nextIndex;
+&nbsp;
+    if (isDeleteEvent &amp;&amp; focusPreviousOnDelete) {
+      nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
+      /* eslint-disable */
+      const nextRef: { [x: string]: any } = components[nextIndex]?.ref;
+      nextRef?.$$?.ctx[6]?.focus();
       /* eslint-enable */
     }
-  
-    const dispatch = createEventDispatcher&lt;{
-    'notify': IInputValue
-    }&gt;();
-  
-    export const getValue = (): IInputValue =&gt; {
-      return checkValidity(false) as IInputValue;
-    };
-  
-    const handleChange = (currentElement: string, event: InputEvent): void =&gt; {
-      const isDeleteEvent = event.inputType === 'deleteContentBackward';
-      const currentIndex = components.findIndex((i) =&gt; i.componentIndex === currentElement);
-      let nextIndex;
-  
-      if (isDeleteEvent &amp;&amp; focusPreviousOnDelete) {
-        nextIndex = currentIndex === 0 ? 0 : currentIndex - 1;
-        /* eslint-disable */
-        const nextRef: {[x:string]: any} = components[nextIndex]?.ref;
-        nextRef?.$$?.ctx[6]?.focus();
-        /* eslint-enable */
-      }
-  
-      if (!isDeleteEvent &amp;&amp; autoFocusNextOnInput) {
-        nextIndex = currentIndex &lt; components.length - 1 ? currentIndex + 1 : currentIndex;
-        /* eslint-disable */
-        const nextRef: {[x:string]: any} = components[nextIndex].ref;
-        nextRef?.$$?.ctx[6]?.focus();
-        /* eslint-enable */
-      }
-  
-      checkValidity(true);
-    };
-  &lt;/script&gt;
-  
-  &lt;section class={`${<span class="branch-2 cbranch-no" title="branch not covered" >customWrapperClass} otp-wrapper`}&gt;</span>
-    {#each components as comp, index}
-      &lt;div class={`${<span class="branch-2 cbranch-no" title="branch not covered" >customRowClass} otp-row`}&gt;</span>
-        &lt;TextInput
-          value={comp.initialValue}
-          componentIndex={comp.componentIndex}
-          {handleChange}
-          placeholder={comp.placeholder}
-          bind:this={comp.ref}
-          customInputClass={<span class="missing-if-branch" title="if path not taken" >I</span>customTextInputClass}
-          {customInputWrapperClass}
-          {maskInput}
-          dataAttr={`elem-${index}`}
-        /&gt;
-        {#if index !== components.length - 1}
-          &lt;p class={`${<span class="branch-1 cbranch-no" title="branch not covered" >customSeparatorClass} separator`}&gt;{<span class="missing-if-branch" title="if path not taken" >I</span>s</span>eparator}&lt;/p&gt;
-        {/if}
-      &lt;/div&gt;
-    {/each}
-  &lt;/section&gt;
-  
-  &lt;style lang="postcss"&gt;
-    @import './index.css';
-  &lt;/style&gt;
-  </pre></td></tr></table></pre>
+&nbsp;
+    if (!isDeleteEvent &amp;&amp; autoFocusNextOnInput) {
+      nextIndex = currentIndex &lt; components.length - 1 ? currentIndex + 1 : currentIndex;
+      /* eslint-disable */
+      const nextRef: { [x: string]: any } = components[nextIndex].ref;
+      nextRef?.$$?.ctx[6]?.focus();
+      /* eslint-enable */
+    }
+&nbsp;
+    checkValidity(true);
+  };
+&lt;/script&gt;
+&nbsp;
+&lt;section class={`${<span class="branch-2 cbranch-no" title="branch not covered" >customWrapperClass} otp-wrapper`}&gt;</span>
+  {#each components as comp, index}
+    &lt;div class={`${<span class="branch-2 cbranch-no" title="branch not covered" >customRowClass} otp-row`}&gt;</span>
+      &lt;TextInput
+        value={comp.initialValue}
+        componentIndex={comp.componentIndex}
+        {handleChange}
+        placeholder={comp.placeholder}
+        bind:this={comp.ref}
+        customInputClass={<span class="missing-if-branch" title="if path not taken" >I</span>customTextInputClass}
+        {customInputWrapperClass}
+        {maskInput}
+        dataAttr={`elem-${index}`}
+      /&gt;
+      {#if index !== components.length - 1}
+        &lt;p class={`${<span class="branch-1 cbranch-no" title="branch not covered" >customSeparatorClass} separator`}&gt;{<span class="missing-if-branch" title="if path not taken" >I</span>s</span>eparator}&lt;/p&gt;
+      {/if}
+    &lt;/div&gt;
+  {/each}
+&lt;/section&gt;
+&nbsp;
+&lt;style lang="postcss"&gt;
+  @import './index.css';
+&lt;/style&gt;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-11T14:55:49.961Z
+                at 2022-09-26T12:30:35.077Z
             </div>
         <script src="prettify.js"></script>
         <script>
