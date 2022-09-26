@@ -28,9 +28,9 @@ export default {
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/"
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -44,7 +44,14 @@ export default {
   ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 85,
+      functions: 95,
+      lines: 95,
+      statements: 95,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
