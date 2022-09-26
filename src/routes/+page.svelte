@@ -7,8 +7,8 @@
       <a class="links" href="/about">OTP Input</a>
     </h1>
     <div class="header-links">
-      <a class="links" target="_blank" href="/examples">API</a>
-      <a class="links" target="_blank" href="https://github.com/shubhadip/svelte-otp/releases/tag/v1.0.2">v1.0.2 </a>
+      <a class="links" rel="noreferrer" href="/examples">API</a>
+      <a class="links" target="_blank" rel="noreferrer" href={`https://github.com/shubhadip/svelte-otp/releases/tag/v1.0.9`}>v1.0.9</a>
     </div>
   </header>
   <div class="content-wrapper">

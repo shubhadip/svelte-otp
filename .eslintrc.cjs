@@ -22,6 +22,9 @@ module.exports = {
 		project: ['./tsconfig.json'],
 		extraFileExtensions: ['.svelte'],
 	},
+	rules: {
+		"@typescript-eslint/no-floating-promises": "warn"
+	},
 	env: {
 		browser: true,
 		es2017: true,
