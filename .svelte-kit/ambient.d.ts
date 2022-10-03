@@ -5,7 +5,7 @@
 /// <reference types="@sveltejs/kit" />
 
 /**
- * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into client-side code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#kit-env-publicprefix).
+ * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into public-facing code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env).
  * 
  * _Unlike_ [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), the values exported from this module are statically injected into your bundle at build time, enabling optimisations like dead code elimination.
  * 
@@ -47,6 +47,7 @@ declare module '$env/static/private' {
 	export const MallocNanoZone: string;
 	export const npm_package_config_commitizen_path: string;
 	export const COLOR: string;
+	export const TERM_SESSION_ID: string;
 	export const npm_config_noproxy: string;
 	export const npm_config_local_prefix: string;
 	export const NVM_DIR: string;
@@ -73,6 +74,7 @@ declare module '$env/static/private' {
 	export const AWS_SECRET_ACCESS_KEY: string;
 	export const npm_package_name: string;
 	export const LANG: string;
+	export const ITERM_PROFILE: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const XPC_FLAGS: string;
 	export const npm_config_node_gyp: string;
@@ -80,28 +82,33 @@ declare module '$env/static/private' {
 	export const XPC_SERVICE_NAME: string;
 	export const VSCODE_INJECTION: string;
 	export const AWS_ACCESS_KEY_ID: string;
+	export const COLORFGBG: string;
 	export const SHLVL: string;
 	export const HOME: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
+	export const LC_TERMINAL_VERSION: string;
 	export const HOMEBREW_PREFIX: string;
+	export const ITERM_SESSION_ID: string;
 	export const npm_config_cache: string;
 	export const LOGNAME: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const GITHUB_TOKEN: string;
+	export const LC_CTYPE: string;
 	export const NVM_BIN: string;
+	export const GITHUB_TOKEN: string;
 	export const npm_config_user_agent: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const GIT_ASKPASS: string;
-	export const INFOPATH: string;
 	export const HOMEBREW_CELLAR: string;
+	export const INFOPATH: string;
+	export const LC_TERMINAL: string;
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
 	export const COLORTERM: string;
 }
 
 /**
- * Similar to [`$env/static/private`](https://kit.svelte.dev/docs/modules#$env-static-private), except that it only includes environment variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#kit-env-publicprefix) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
+ * Similar to [`$env/static/private`](https://kit.svelte.dev/docs/modules#$env-static-private), except that it only includes environment variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
  * 
  * Values are replaced statically at build time.
  * 
@@ -114,9 +121,9 @@ declare module '$env/static/public' {
 }
 
 /**
- * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#kit-env-publicprefix).
+ * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env).
  * 
- * This module cannot be imported into client-side code.
+ * This module cannot be imported into public-facing code.
  * 
  * ```ts
  * import { env } from '$env/dynamic/private';
@@ -148,6 +155,7 @@ declare module '$env/dynamic/private' {
 		MallocNanoZone: string;
 		npm_package_config_commitizen_path: string;
 		COLOR: string;
+		TERM_SESSION_ID: string;
 		npm_config_noproxy: string;
 		npm_config_local_prefix: string;
 		NVM_DIR: string;
@@ -174,6 +182,7 @@ declare module '$env/dynamic/private' {
 		AWS_SECRET_ACCESS_KEY: string;
 		npm_package_name: string;
 		LANG: string;
+		ITERM_PROFILE: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		XPC_FLAGS: string;
 		npm_config_node_gyp: string;
@@ -181,21 +190,26 @@ declare module '$env/dynamic/private' {
 		XPC_SERVICE_NAME: string;
 		VSCODE_INJECTION: string;
 		AWS_ACCESS_KEY_ID: string;
+		COLORFGBG: string;
 		SHLVL: string;
 		HOME: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
+		LC_TERMINAL_VERSION: string;
 		HOMEBREW_PREFIX: string;
+		ITERM_SESSION_ID: string;
 		npm_config_cache: string;
 		LOGNAME: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		GITHUB_TOKEN: string;
+		LC_CTYPE: string;
 		NVM_BIN: string;
+		GITHUB_TOKEN: string;
 		npm_config_user_agent: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		GIT_ASKPASS: string;
-		INFOPATH: string;
 		HOMEBREW_CELLAR: string;
+		INFOPATH: string;
+		LC_TERMINAL: string;
 		npm_node_execpath: string;
 		npm_config_prefix: string;
 		COLORTERM: string;
@@ -204,7 +218,7 @@ declare module '$env/dynamic/private' {
 }
 
 /**
- * Similar to [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#kit-env-publicprefix) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
+ * Similar to [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
  * 
  * Note that public dynamic environment variables must all be sent from the server to the client, causing larger network requests — when possible, use `$env/static/public` instead.
  * 
