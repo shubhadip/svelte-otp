@@ -13,3 +13,4 @@ coverage/
 package/
 .svelte-kit/
 dist/
+CHANGELOG.md
