@@ -13,5 +13,5 @@ export { matchers } from './client-matchers.js';
 };
 
 			export const hooks = {
-				handleError: (({ error }) => { console.error(error) }),
+				handleError: (({ error }) => { console.error(error); return { message: 'Internal Error' }; }),
 			};
