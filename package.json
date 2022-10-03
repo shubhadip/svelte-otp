@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build:demo": "vite build",
+    "build:sync": "svelte-kit sync && npm run build:lib",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write ./src/**/*.{svelte,ts}",
-    "lint": "eslint './src/**/*.{js,ts,svelte}'",
-    "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --no-error-on-unmatched-pattern",
     "prelint": "npm run format",
     "cz": "git-cz",
     "pkg:build": "svelte-package",
@@ -48,6 +49,7 @@
     "cssnano": "^5.1.13",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "git-cz": "^4.7.3",
     "husky": "^6.0.0",
@@ -74,7 +76,7 @@
   },
   "lint-staged": {
     "*.{js,ts,svelte}": [
-      "svelte-check",
+      "svelte-check --ignore ./package",
       "npm run lint:fix"
     ]
   },
