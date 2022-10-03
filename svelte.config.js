@@ -9,7 +9,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter({out: 'dist'})
+		adapter: adapter()
 	},
 	
 	package: {
