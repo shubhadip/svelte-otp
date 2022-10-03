@@ -34,6 +34,7 @@
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.78",
     "@sveltejs/kit": "next",
     "@sveltejs/package": "next",
     "@sveltejs/vite-plugin-svelte": "^1.0.5",
